@@ -5,6 +5,7 @@ import com.fastcampus.javaallinone.project3.mycontact.domain.Person;
 import com.fastcampus.javaallinone.project3.mycontact.repository.BlockRepository;
 import com.fastcampus.javaallinone.project3.mycontact.repository.PersonRepository;
 import jdk.vm.ci.meta.Local;
+import net.minidev.json.JSONUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,6 +28,15 @@ class PersonServiceTest {
         givenPeople();
 
         List<Person> result = personService.getPeopleExcludeBlocks();
+
+        result.forEach(System.out::println);
+    }
+
+    @Test
+    void getPeopleByyName(){
+        givenPeople();
+
+        List<Person> result= personService.getPeopleByName("shinjjune");
 
         result.forEach(System.out::println);
     }
