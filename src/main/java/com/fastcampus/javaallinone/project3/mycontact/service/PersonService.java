@@ -16,18 +16,13 @@ public class PersonService {
     @Autowired
     private PersonRepository personRepository;
 
-
     public List <Person> getPeopleByName(String name) {
         return personRepository.findByName(name);
     }
+
     @Transactional(readOnly = true)
     public Person getPerson(Long id) {
-        Person person = personRepository.findById(id).orElse(null);
-
-
-        log.info("person: {}", person);
-
-        return person;
+        return personRepository.findById(id).orElse(null);
     }
 
     @Transactional
